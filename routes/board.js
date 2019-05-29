@@ -22,7 +22,7 @@ router.get('/student_board', function(req, res,next) {
     var dbo = db.db("mylab");
       dbo.collection("student_board").find({}).sort({"date":1}).toArray(function(err, result) {
       if (err) throw err;
-      res.render('../template/student_board', { email:req.session.user.email, name:req.session.user.name, bodard: result });
+      res.render('../template/student_board', { email:req.session.user.email, name:req.session.user.name, board: result });
       db.close();
     });
   });
