@@ -91,8 +91,9 @@
 					</div>
 				</div>
 			-->
+			<%- if(board){for(var i=0;i < board.length;i++) { %>
 			<div class="col-12">
-				<span class="text-primary text-left font-weight-bold"><%- board[0].title%></span> <span class="text-muted"> - 11시간
+				<span class="text-primary text-left font-weight-bold"><%- board[i].title%></span> <span class="text-muted"> - 11시간
 					전</span>
 			</div>
 
@@ -101,49 +102,11 @@
 						<img class="mr-3" src="img/blog/1.jpg" height="auto" width="200px"
 							alt="Generic placeholder image">
 						<div class="media-body">
-							<%-board[0].content%>
+							<%-board[i].content%>
 					</div>
 				</div>
-
-				<div class="col-12">
-					<span class="text-primary text-left font-weight-bold">조혜련</span> <span class="text-muted"> - 11시간
-						전</span>
-				</div>
-				<div class="col-12 community-list">
-					<div class="media">
-						<img class="mr-3" src="img/blog/1.jpg" height="auto" width="200px"
-							alt="Generic placeholder image">
-						<div class="media-body">
-							<h5 class="mt-0">태보의 저주.</h5>
-							태보는 지금 전세계적으로 선풍적인 인기를 끌고 있는데요
-							태보란, 우리나라의 태권도와 복싱을 접목한 운동입니다~
-							두달동안 태보를 했더니 조혜련이 이렇게 완벽한 몸매가 되었습니다. (와!!)
-							태보를 하루에 25분만 투자한다면 런닝머신 한 시간!
-							여러분도 하루에 25분만! 태보의 세계로 들어가봅시다! (와!!)
-						</div>
-					</div>
-				</div>
-
-				<div class="col-12">
-					<span class="text-primary text-left font-weight-bold">조혜련</span> <span class="text-muted"> - 11시간
-						전</span>
-				</div>
-				<div class="col-12 community-list">
-					<div class="media">
-						<img class="mr-3" src="img/blog/1.jpg" height="auto" width="200px"
-							alt="Generic placeholder image">
-						<div class="media-body">
-							<h5 class="mt-0">태보의 저주.</h5>
-							태보는 지금 전세계적으로 선풍적인 인기를 끌고 있는데요
-							태보란, 우리나라의 태권도와 복싱을 접목한 운동입니다~
-							두달동안 태보를 했더니 조혜련이 이렇게 완벽한 몸매가 되었습니다. (와!!)
-							태보를 하루에 25분만 투자한다면 런닝머신 한 시간!
-							여러분도 하루에 25분만! 태보의 세계로 들어가봅시다! (와!!)
-						</div>
-					</div>
-				</div>
-
 			</div>
+			<% } %>
 
 			<a href="./community_write"><button type="button" class="btn btn-muted col-2 align-self-end">글 쓰기</button></a>
 			<br><br><br><br>
