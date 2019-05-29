@@ -18,7 +18,7 @@ router.use(session({
 }))
 
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/";
+var url = "mongodb://13.124.154.59:27017/";
 
 router.get('/community',function(req,res){
   if(req.session.user){
