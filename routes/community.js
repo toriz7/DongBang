@@ -17,9 +17,20 @@ router.use(session({
   //using secure flag means that the cookie will be set on Https only
 }))
 
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+
 router.get('/community',function(req,res){
   if(req.session.user){
-    res.render('community',{email:req.session.user.email, name:req.session.user.name})
+    MongoClient.connect(url, function(err, db) {
+      if (err) throw err;
+      var dbo = db.db("mylab");
+        dbo.collection("student_board").find({}).sort({"date":1}).toArray(function(err, result) {
+        if (err) throw err;
+        res.render('community', { email:req.session.user.email, name:req.session.user.name, board: result });
+        db.close();
+      });
+    });
 
     //console.log(req.session.user.email);
   }else{
