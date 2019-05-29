@@ -21,22 +21,24 @@ var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/";
 
 router.get('/community',function(req,res){
-  if(req.session.user){
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
       var dbo = db.db("mylab");
         dbo.collection("student_board").find({}).sort({"date":1}).toArray(function(err, result) {
         if (err) throw err;
-        res.render('community', { email:req.session.user.email, name:req.session.user.name, board: result });
-        db.close();
+        if(req.session.user){
+          res.render('community', { email:req.session.user.email, name:req.session.user.name, board: result });
+          db.close();
+        }
+        else{
+          res.render('community', { email:null, name:null, board: result });
+          db.close();
+        }
       });
     });
-
     //console.log(req.session.user.email);
-  }else{
-    res.render('community',{email:null, name:null,board: result })
-  }
 });
+
 router.get('/community_write',function(req,res){
   if(req.session.user){
     res.render('community_write',{email:req.session.user.email, name:req.session.user.name})
