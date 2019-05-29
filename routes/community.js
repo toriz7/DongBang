@@ -34,7 +34,7 @@ router.get('/community',function(req,res){
 
     //console.log(req.session.user.email);
   }else{
-    res.render('community',{email:null, name:null})
+    res.render('community',{email:null, name:null,board: result })
   }
 });
 router.get('/community_write',function(req,res){
