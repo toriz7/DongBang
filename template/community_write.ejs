@@ -63,11 +63,21 @@
 
 					</div>
 				</div>
-
-				<div class="col-4">
-					<h5>평가</h5>>
+				
+				<div class="col-3">
+					<div class="row">
+					<h5 class="align-center">이 집을 추천하시나요?</h5>
+					<div class="col">
+						<i class="fa fa-thumbs-o-up fa-5x" style="color:blue"></i>
+					</div>
+					<div class="col">
+						<i class="fa fa-thumbs-o-down fa-5x" style="color:red"></i>
+					</div>
+				</div>					
 				</div>
+				
 				<div class="col-12">
+						<br><br>
 					<div class="comment-form-warp">
 						<h5 class="comment-title">제목</h5>
 
@@ -155,7 +165,6 @@
 						lat: position.coords.latitude,
 						lng: position.coords.longitude
 					};
-
 					infoWindow.setPosition(pos);
 					infoWindow.setContent('Location found.');
 					infoWindow.open(map);

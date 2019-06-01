@@ -2109,6 +2109,10 @@ ol {
 	width : auto;
 	height : 350px;
 }
+#map-footer{
+	width : auto;
+	height : 240px;
+}
 .map_read{
 
 }

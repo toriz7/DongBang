@@ -72,12 +72,36 @@
 	<section class="hero-section set-bg" data-setbg="img/bg3.jpg">
 		<div class="container hero-text text-black">
 			<h2>동방과 함께 자취방을 구해봐요!</h2>
-			<p>동방은 동국대학교 방구하기의 줄임말로 <br> 학교와 주변 자취방과의 공존 ~~~~~~ 재학생의 자취를 돕는 ~~~~~~~ 한 플렛폼이다 짱좋다. </p>
-			<a href="#" class="site-btn">자세한 정보[모달 출력 예정]</a>
+			<p>동방은 동국대학교 방구하기의 줄임말로 <br> 
+				자취생들이 자유롭게 자취방에대한 의견을 주고받을 수 있는 커뮤니티 사이트 입니다. <br>
+				더욱 발전하여 학교와 협력을 통하여 동국대학교가 부동산 중계인이되어 <br>
+				주거여건을 보장하는 프로젝트입니다. </p>
+				<button type="button" class="site-btn" data-toggle="modal" data-target=".explanationModal">
+					자세한 정보
+				</button>
+				
 		</div>
 	</section>
 	<!-- Hero section end -->
-
+	<div class="modal fade explanationModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg role_">
+			<div class="modal-content">
+				<div class="modal-header">
+				  <h3 class="modal-title">동방이란?</h3>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+				  <h4>동방에대한 자세한설명이 들어갑니다.
+					</h4>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			  </div>
+		</div>
+	</div>
 
 	<!-- Filter form section -->
 	<div class="filter-search">
@@ -104,8 +128,7 @@
 	<section class="properties-section spad">
 		<div class="container">
 			<div class="section-title text-center">
-				<h3>최근 매물 정보</h3>
-				<p>경호형 이부분은 DB에서 데이터 가져오는거 렌더링하는걸로 바꾸는게 좋을꺼같습니다.</p>
+				<h3>매물 정보</h3>
 			</div>
 			<!-- 이부분 DB에서 가져와서 4개 띄워주는걸로 하는게 좋을것같습니다. -->
 			<div class="row">
@@ -167,7 +190,6 @@
 			<div class="container">
 				<div class="section-title text-center ">
 					<h3>커뮤니티 최근 게시글</h3>
-					<p>DB화이팅 !!</p>
 				</div>
 				<div class="row">
 					<div class="col-lg-4 col-md-6 blog-item">
@@ -218,25 +240,21 @@
 				<a href="#" class="gallery-item grid-long set-bg" data-setbg="img/gallery/1.jpg">
 					<div class="gi-info">
 						<h3>문화공간</h3>
-						<p>118 Properties</p>
 					</div>
 				</a>
 				<a href="#" class="gallery-item grid-wide set-bg" data-setbg="img/gallery/2.jpg">
 					<div class="gi-info">
 						<h3>맛집</h3>
-						<p>112 Properties</p>
 					</div>
 				</a>
 				<a href="#" class="gallery-item set-bg" data-setbg="img/gallery/3.jpg">
 					<div class="gi-info">
 						<h3>놀이공간</h3>
-						<p>72 Properties</p>
 					</div>
 				</a>
 				<a href="#" class="gallery-item set-bg" data-setbg="img/gallery/4.jpg">
 					<div class="gi-info">
-						<h3>공동주택(이런거있나?)</h3>
-						<p>50 Properties</p>
+						<h3>행사</h3>
 					</div>
 				</a>
 
@@ -277,7 +295,7 @@
 							<i class="fa fa-briefcase"></i>
 							<div class="service-text">
 								<h5>더 나아가</h5>
-								<p>우리가 앞으로 할것들에 대한 내용을 넣자.</p>
+								<p>자취환경 개선을 위하여 노력할것입니다.</p>
 							</div>
 						</div>
 					</div>
