@@ -25,7 +25,7 @@ var url = "mongodb://localhost:27017/";
 
 router.get('/community',function(req,res){
     var perPage = 5//페이지당 5개
-    var page = req.params.page || 1 //파라미터로 값 받기.
+    var page = req.params.page || 2 //파라미터로 값 받기.
 
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
