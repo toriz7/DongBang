@@ -33,7 +33,7 @@ router.get('/community',function(req,res){
       .limit(perPage)
       .sort({"date":1}).toArray(function(err, result) {
         if (err) throw err;
-        var count=dbo.collection("student_board").count()
+        var count=dbo.collection("student_board").count().exec(function(err, count) {
         console.log(count);
         if(req.session.user){
 
@@ -55,6 +55,7 @@ router.get('/community',function(req,res){
             pages: Math.ceil(count / perPage) });
           db.close();
         }
+      }
       });
     });
     //console.log(req.session.user.email);
@@ -73,7 +74,8 @@ router.get('/community/:page',function(req,res){
         .limit(perPage)
         .sort({"date":1}).toArray(function(err, result) {
         if (err) throw err;
-        var count=dbo.collection("student_board").count()
+
+        var count=dbo.collection("student_board").count().exec(function(err, count) {
         console.log(count);
         if(req.session.user){
           res.render('community', {
@@ -94,6 +96,7 @@ router.get('/community/:page',function(req,res){
             pages: Math.ceil(count / perPage) });
           db.close();
         }
+      }
       });
     });
     //console.log(req.session.user.email);
