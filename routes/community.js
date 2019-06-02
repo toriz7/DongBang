@@ -25,6 +25,7 @@ var url = "mongodb://localhost:27017/";
 
 router.get('/community',function(req,res){
     var perPage = 5//페이지당 5개
+    var dbo = db.db("mylab");
     var page = req.params.page || 1 //파라미터로 값 받기.
     var count=dbo.collection("student_board").find({}).count()
 
