@@ -99,8 +99,8 @@
                     <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
                         <% if (i == current) { %>
                             <li class="active"><a><%= i %></a></li>
-                        <% } else { pages=i%>
-                            <li><a href="/community"><%= i %></a></li>
+                        <% } else { %>
+                            <li><a href="/community/<%= i %>"><%= i %></a></li>
                         <% } %>
                         <% if (i == Number(current) + 4 && i < pages) { %>
                             <li class="disabled"><a>...</a></li>
@@ -114,6 +114,7 @@
                 </ul>
             <% } %>
 			</div>
+		</div>
 			<div class="row">
 			<a href="./community_write"><button type="button" class="btn btn-muted align-self-end">글 쓰기</button></a>
 			</div>
