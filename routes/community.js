@@ -80,7 +80,7 @@ router.get('/community/:page',function(req,res){
             email:req.session.user.email,
             name:req.session.user.name,
             board: result,
-            current:page
+            current:page,
             pages: Math.ceil(count / perPage) });
           db.close();
         }
