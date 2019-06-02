@@ -20,15 +20,10 @@ router.use(session({
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/";
 
-
-
-
 router.get('/community',function(req,res){
     var perPage = 5//페이지당 5개
-    var dbo = db.db("mylab");
-    var page = req.params.page || 1 //파라미터로 값 받기.
-    var count=dbo.collection("student_board").find({}).count()
 
+    var page = req.params.page || 1 //파라미터로 값 받기.
 
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
@@ -39,6 +34,7 @@ router.get('/community',function(req,res){
       .sort({"date":1}).toArray(function(err, result) {
         if (err) throw err;
         if(req.session.user){
+          var count=dbo.collection("student_board").find({}).count()
           res.render('community', {
              email:req.session.user.email,
              name:req.session.user.name,
@@ -65,7 +61,7 @@ router.get('/community',function(req,res){
 router.get('/community/:page',function(req,res){
     var perPage = 5//페이지당 5개
     var page = req.params.page //파라미터로 값 받기.
-    var count=dbo.collection("student_board").find({}).count()
+
 
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
@@ -76,6 +72,7 @@ router.get('/community/:page',function(req,res){
         .sort({"date":1}).toArray(function(err, result) {
         if (err) throw err;
         if(req.session.user){
+          var count=dbo.collection("student_board").find({}).count()
           res.render('community', {
 
             email:req.session.user.email,
