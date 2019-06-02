@@ -85,7 +85,7 @@ router.get('/community/:page',function(req,res){
           db.close();
         }
         else{
-          res.render('community', { res.render('community', {
+          res.render('community', {
             email:null,
             name:null,
             board: result,
