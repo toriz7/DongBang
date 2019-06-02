@@ -1,5 +1,11 @@
 var express = require('express');
 var router = express.Router();
+
+router.use('/template',express.static('./template/'));
+router.use('/css', express.static('./template/css/'));
+router.use('/js', express.static('./template/js/'));
+router.use('/img', express.static('./template/img/'));
+
 /*
 여기서 세션설정가지 코드 없으면 세션에러가 난다...왜?
 아마도 세션 선언 user가 여기서 이루어지기 때문에인듯하다
