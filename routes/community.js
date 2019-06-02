@@ -26,6 +26,8 @@ var url = "mongodb://localhost:27017/";
 router.get('/community',function(req,res){
     var perPage = 5//페이지당 5개
     var page = req.params.page || 1 //파라미터로 값 받기.
+    var count=dbo.collection("student_board").find({}).count()
+
 
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
@@ -40,11 +42,18 @@ router.get('/community',function(req,res){
              email:req.session.user.email,
              name:req.session.user.name,
              board: result,
-             current:page });
+             current:page,
+             pages: Math.ceil(count / perPage)
+           });
           db.close();
         }
         else{
-          res.render('community', { email:null, name:null, board: result,current:page, pages:4 });
+          res.render('community', {
+            email:null,
+            name:null,
+            board: result,
+            current:page,
+            pages: Math.ceil(count / perPage) });
           db.close();
         }
       });
@@ -55,6 +64,7 @@ router.get('/community',function(req,res){
 router.get('/community/:page',function(req,res){
     var perPage = 5//페이지당 5개
     var page = req.params.page //파라미터로 값 받기.
+    var count=dbo.collection("student_board").find({}).count()
 
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
@@ -66,14 +76,21 @@ router.get('/community/:page',function(req,res){
         if (err) throw err;
         if(req.session.user){
           res.render('community', {
+
             email:req.session.user.email,
             name:req.session.user.name,
             board: result,
-            current:page });
+            current:page
+            pages: Math.ceil(count / perPage) });
           db.close();
         }
         else{
-          res.render('community', { email:null, name:null, board: result, current:page });
+          res.render('community', { res.render('community', {
+            email:null,
+            name:null,
+            board: result,
+            current:page,
+            pages: Math.ceil(count / perPage) });
           db.close();
         }
       });
