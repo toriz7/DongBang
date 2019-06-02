@@ -58,11 +58,11 @@ router.get('/community',function(req,res){
         .sort({"date":1}).toArray(function(err, result) {
         if (err) throw err;
         if(req.session.user){
-          res.render(page, { email:req.session.user.email, name:req.session.user.name, board: result });
+          res.render(req.params.page, { email:req.session.user.email, name:req.session.user.name, board: result });
           db.close();
         }
         else{
-          res.render(page, { email:null, name:null, board: result });
+          res.render(req.params.page, { email:null, name:null, board: result });
           db.close();
         }
       });
