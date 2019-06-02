@@ -85,7 +85,7 @@ router.get('/community/:page',function(req,res){
             name:req.session.user.name,
             board: result,
             current:page,
-            pages: 2
+            pages: Math.ceil(count / perPage)
           });
           db.close();
         }
@@ -95,7 +95,7 @@ router.get('/community/:page',function(req,res){
             name:null,
             board: result,
             current:page,
-            pages: 2
+            pages: Math.ceil(count / perPage)
           });
           db.close();
         }
