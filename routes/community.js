@@ -56,7 +56,7 @@ router.get('/community',function(req,res){
           });
           db.close();
         }
-      )}
+      })
       });
     });
     //console.log(req.session.user.email);
@@ -85,7 +85,8 @@ router.get('/community/:page',function(req,res){
             name:req.session.user.name,
             board: result,
             current:page,
-            pages: Math.ceil(count / perPage) });
+            pages: Math.ceil(count / perPage)
+          });
           db.close();
         }
         else{
@@ -94,10 +95,11 @@ router.get('/community/:page',function(req,res){
             name:null,
             board: result,
             current:page,
-            pages: Math.ceil(count / perPage) });
+            pages: Math.ceil(count / perPage)
+          });
           db.close();
         }
-      )}
+      })
       });
     });
     //console.log(req.session.user.email);
