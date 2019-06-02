@@ -67,7 +67,6 @@ router.get('/community/:page',function(req,res){
     var perPage = 5//페이지당 5개
     var page = req.params.page || 1//파라미터로 값 받기.
 
-
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
       var dbo = db.db("mylab");
@@ -86,7 +85,7 @@ router.get('/community/:page',function(req,res){
             name:req.session.user.name,
             board: result,
             current:page,
-            pages: Math.ceil(count / perPage)
+            pages: 2
           });
           db.close();
         }
@@ -96,7 +95,7 @@ router.get('/community/:page',function(req,res){
             name:null,
             board: result,
             current:page,
-            pages: Math.ceil(count / perPage)
+            pages: 2
           });
           db.close();
         }
