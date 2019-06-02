@@ -33,8 +33,9 @@ router.get('/community',function(req,res){
       .limit(perPage)
       .sort({"date":1}).toArray(function(err, result) {
         if (err) throw err;
+        var count=dbo.collection("student_board").find({}).count()
         if(req.session.user){
-          var count=dbo.collection("student_board").find({}).count()
+
           res.render('community', {
              email:req.session.user.email,
              name:req.session.user.name,
@@ -71,8 +72,8 @@ router.get('/community/:page',function(req,res){
         .limit(perPage)
         .sort({"date":1}).toArray(function(err, result) {
         if (err) throw err;
+        var count=dbo.collection("student_board").find({}).count()
         if(req.session.user){
-          var count=dbo.collection("student_board").find({}).count()
           res.render('community', {
 
             email:req.session.user.email,
