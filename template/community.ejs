@@ -99,8 +99,8 @@
                     <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
                         <% if (i == current) { %>
                             <li class="active"><a><%= i %></a></li>
-                        <% } else { %>
-                            <li><a href="/community/<%= i %>"><%= i %></a></li>
+                        <% } else { pages=i%>
+                            <li><a href="/community/"><%= i %></a></li>
                         <% } %>
                         <% if (i == Number(current) + 4 && i < pages) { %>
                             <li class="disabled"><a>...</a></li>
