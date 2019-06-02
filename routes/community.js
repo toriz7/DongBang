@@ -20,6 +20,9 @@ router.use(session({
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/";
 
+
+
+
 router.get('/community',function(req,res){
     var perPage = 5//페이지당 5개
     var page = req.params.page || 1 //파라미터로 값 받기.
@@ -58,11 +61,11 @@ router.get('/community/:page',function(req,res){
         .sort({"date":1}).toArray(function(err, result) {
         if (err) throw err;
         if(req.session.user){
-          res.render('community', { email:req.session.user.email, name:req.session.user.name, board: result, page:page });
+          res.render('community'+req.params.page, { email:req.session.user.email, name:req.session.user.name, board: result, page:page });
           db.close();
         }
         else{
-          res.render('community', { email:null, name:null, board: result, page:page });
+          res.render('community'+req.params.page, { email:null, name:null, board: result, page:page });
           db.close();
         }
       });
