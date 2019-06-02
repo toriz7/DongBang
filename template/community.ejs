@@ -90,7 +90,7 @@
                     <% if (current == 1) { %>
                         <li class="disabled"><a>First</a></li>
                     <% } else { %>
-                        <li><a href="community/1">First</a></li>
+                        <li><a href="/community/1">First</a></li>
                     <% } %>
                     <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
                     <% if (i !== 1) { %>
@@ -100,7 +100,7 @@
                         <% if (i == current) { %>
                             <li class="active"><a><%= i %></a></li>
                         <% } else { %>
-                            <li><a href="community/<%= i %>"><%= i %></a></li>
+                            <li><a href="/community/<%= i %>"><%= i %></a></li>
                         <% } %>
                         <% if (i == Number(current) + 4 && i < pages) { %>
                             <li class="disabled"><a>...</a></li>
