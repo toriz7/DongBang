@@ -36,11 +36,11 @@ router.get('/community',function(req,res){
       .sort({"date":1}).toArray(function(err, result) {
         if (err) throw err;
         if(req.session.user){
-          res.render('community', { email:req.session.user.email, name:req.session.user.name, board: result,page:page });
+          res.render('community', { email:req.session.user.email, name:req.session.user.name, board: result,current:page });
           db.close();
         }
         else{
-          res.render('community', { email:null, name:null, board: result,page:page });
+          res.render('community', { email:null, name:null, board: result,current:page });
           db.close();
         }
       });
@@ -61,11 +61,11 @@ router.get('/community/:page',function(req,res){
         .sort({"date":1}).toArray(function(err, result) {
         if (err) throw err;
         if(req.session.user){
-          res.render('community', { email:req.session.user.email, name:req.session.user.name, board: result, page:page });
+          res.render('community', { email:req.session.user.email, name:req.session.user.name, board: result, current:page });
           db.close();
         }
         else{
-          res.render('community', { email:null, name:null, board: result, page:page });
+          res.render('community', { email:null, name:null, board: result, current:page });
           db.close();
         }
       });
