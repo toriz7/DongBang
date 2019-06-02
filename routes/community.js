@@ -34,7 +34,7 @@ router.get('/community',function(req,res){
       .sort({"date":1}).toArray(function(err, result) {
         if (err) throw err;
         dbo.collection("student_board").count({}).then(function(err, count) {
-        console.log(count);
+        console.log(count.length);
         if(req.session.user){
 
           res.render('community', {
@@ -42,7 +42,7 @@ router.get('/community',function(req,res){
              name:req.session.user.name,
              board: result,
              current:page,
-             pages: Math.ceil(count / perPage)
+             pages: Math.ceil(count.length / perPage)
            });
           db.close();
         }
@@ -52,7 +52,7 @@ router.get('/community',function(req,res){
             name:null,
             board: result,
             current:page,
-            pages: Math.ceil(count / perPage)
+            pages: Math.ceil(count.length / perPage)
           });
           db.close();
         }
@@ -77,7 +77,7 @@ router.get('/community/:page',function(req,res){
         if (err) throw err;
 
         dbo.collection("student_board").count({}).then(function(err, count) {
-        console.log(count);
+        console.log(count.length);
         if(req.session.user){
           res.render('community', {
 
@@ -85,7 +85,7 @@ router.get('/community/:page',function(req,res){
             name:req.session.user.name,
             board: result,
             current:page,
-            pages: Math.ceil(count / perPage)
+            pages: Math.ceil(count.length / perPage)
           });
           db.close();
         }
@@ -95,7 +95,7 @@ router.get('/community/:page',function(req,res){
             name:null,
             board: result,
             current:page,
-            pages: Math.ceil(count / perPage)
+            pages: Math.ceil(count.length / perPage)
           });
           db.close();
         }
