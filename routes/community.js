@@ -20,7 +20,7 @@ router.use(session({
 
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/";
-
+/*
 router.get('/community',function(req,res){
     var perPage = 5//페이지당 5개
 
@@ -62,7 +62,7 @@ router.get('/community',function(req,res){
     });
     //console.log(req.session.user.email);
 });
-
+*/
 router.get('/community/:page',function(req,res){
     var perPage = 5//페이지당 5개
     var page = req.params.page || 1//파라미터로 값 받기.
