@@ -1,11 +1,5 @@
 var express = require('express');
 var router = express.Router();
-
-router.use('/template',express.static('./template/'));
-router.use('/css', express.static('./template/css/'));
-router.use('/js', express.static('./template/js/'));
-router.use('/img', express.static('./template/img/'));
-
 /*
 여기서 세션설정가지 코드 없으면 세션에러가 난다...왜?
 아마도 세션 선언 user가 여기서 이루어지기 때문에인듯하다
@@ -13,6 +7,7 @@ router.use('/img', express.static('./template/img/'));
 var bodyParser=require("body-parser");
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
+
 
 var session=require('express-session');
 router.use(session({
@@ -40,7 +35,7 @@ router.get('/community',function(req,res){
       .sort({"date":1}).toArray(function(err, result) {
         if (err) throw err;
         dbo.collection("student_board").count(function(err, count) {
-        console.log(count);
+
         if(req.session.user){
 
           res.render('community', {
@@ -70,29 +65,27 @@ router.get('/community',function(req,res){
 
 router.get('/community/:page',function(req,res){
     var perPage = 5//페이지당 5개
-    var page = req.params.page //파라미터로 값 받기.
-
-
+    var page = req.params.page || 1//파라미터로 값 받기.
+    
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
       var dbo = db.db("mylab");
-        dbo.collection("student_board").find({})
-        .skip((perPage * page) - perPage) //이렇게 해야 첫 페이지에서도 출력됨
-        .limit(perPage)
-        .sort({"date":1}).toArray(function(err, result) {
+      dbo.collection("student_board").find({})
+      .skip((perPage * page) - perPage) //이렇게 해야 첫 페이지에서도 출력됨
+      .limit(perPage)
+      .sort({"date":1}).toArray(function(err, result) {
         if (err) throw err;
-
         dbo.collection("student_board").count(function(err, count) {
         console.log(count);
         if(req.session.user){
-          res.render('community', {
 
-            email:req.session.user.email,
-            name:req.session.user.name,
-            board: result,
-            current:page,
-            pages: Math.ceil(count / perPage)
-          });
+          res.render('community', {
+             email:req.session.user.email,
+             name:req.session.user.name,
+             board: result,
+             current:page,
+             pages: Math.ceil(count / perPage)
+           });
           db.close();
         }
         else{
