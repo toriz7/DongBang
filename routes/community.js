@@ -8,12 +8,6 @@ var bodyParser=require("body-parser");
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
-router.use('/template',express.static('../template/'));
-router.use('/css', express.static('../template/css/'));
-router.use('/js', express.static('../template/js/'));
-router.use('/img', express.static('../template/img/'));
-router.use('/icon-fonts', express.static('../template/icon-fonts/'));
-
 
 var session=require('express-session');
 router.use(session({
@@ -71,7 +65,7 @@ router.get('/community',function(req,res){
 
 router.get('/community/:page',function(req,res){
     var perPage = 5//페이지당 5개
-    var page = req.params.page //파라미터로 값 받기.
+    //var page = req.params.page //파라미터로 값 받기.
 
 
     MongoClient.connect(url, function(err, db) {

@@ -27,3 +27,104 @@ module.exports = mongoose.model('student_board', BoardSchema);
 //db.student_board.insert({"userid":"chanchan","date":"2019-05-16","room_area":"18","location":"서울특별시 중구 필동 3가","title":"히히2","content":"굿굿6","imgLoc":"./template/img/bg.img","isGood":"true","howmayGood":"0"})
 //db.student_board.insert({"userid":"hithere","date":"2019-05-18","room_area":"16.5","location":"서울특별시 중구 필동 3가","title":"히히3","content":"굿굿7","imgLoc":"./template/img/bg.img","isGood":"true","howmayGood":"0"})
 //db.student_board.insert({"userid":"Chris.P.Bacon","date":"2019-05-19","room_area":"17.5","location":"서울특별시 중구 필동 3가","title":"히히4","content":"굿굿8","imgLoc":"./template/img/bg.img","isGood":"true","howmayGood":"0"})
+/*
+db.house_board.insert(
+  {
+    "type": "월세",
+    "date": "2019-06-02",
+    "room_area": "13.51 / 4평",
+    "location": "서울특별시 중구 필동 3가",
+    "title": "동국대 3분거리 원룸",
+    "car": "unable",
+    "price": "보증금 500 / 월세 45"
+  }
+)
+db.house_board.insert(
+  {
+    "type": "전세",
+    "date": "2019-00-02",
+    "room_area": "20.62 / 6평",
+    "location": "서울특별시 중구 필동 3가",
+    "title": "오피스텔 파크원빌",
+    "car": "able",
+    "price": "보증금 1000 / 월세 60"
+  }
+)
+db.house_board.insert(
+  {
+    "type": "전세",
+    "date": "2019-06-02",
+    "room_area": "30.54 / 9평",
+    "location": "서울특별시 중구 필동 3가",
+    "title": "오피스텔 파크원빌",
+    "car": "able",
+    "price": "보증금 1000 / 월세 70"
+  }
+)
+db.house_board.insert(
+  {
+    "type": "전세",
+    "date": "2019-05-30",
+    "room_area": "30.54 / 9평",
+    "location": "서울특별시 중구 필동 3가",
+    "title": "동대입구역 분리형 원룸",
+    "car": "unable",
+    "price": "보증금 1000 / 월세 70"
+  }
+)
+db.house_board.insert(
+  {
+    "type": "전월세",
+    "date": "2019-05-30",
+    "room_area": "48 / 14평",
+    "location": "서울특별시 중구 필동 3가",
+    "title": "동대입구역 투룸",
+    "car": "unable",
+    "price": "보증금 1억 / 월세 70"
+  }
+)
+db.house_board.insert(
+  {
+    "type": "월세",
+    "date": "2019-05-30",
+    "room_area": "13.51 / 4평",
+    "location": "서울특별시 중구 필동 3가",
+    "title": "살기좋은 여성전용 원룸",
+    "car": "unable",
+    "price": "보증금 1000 / 월세 55"
+  }
+)
+db.house_board.insert(
+  {
+    "type": "월세",
+    "date": "2019-05-29",
+    "room_area": "13.51 / 4평",
+    "location": "서울특별시 중구 필동 3가",
+    "title": "동대입구역 3분거리 원룸",
+    "car": "able",
+    "price": "보증금 1000 / 월세 60"
+  }
+)
+db.house_board.insert(
+  {
+    "type": "월세",
+    "date": "2019-05-29",
+    "room_area": "19.8 / 5평",
+    "location": "서울특별시 중구 필동 3가",
+    "title": "3호선 동대입구역 3분 이내 원룸",
+    "car": "unable",
+    "price": "보증금 2500 / 월세 30"
+  }
+)
+db.house_board.insert(
+  {
+    "type": "전세",
+    "date": "2019-05-29",
+    "room_area": "18.5 / 5평",
+    "location": "서울특별시 중구 필동 3가",
+    "title": "동대입구역 도보 1분 교통편한 원룸",
+    "car": "unable",
+    "price": "보증금 1000 / 월세 45"
+  }
+)
+*/
