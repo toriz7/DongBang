@@ -25,7 +25,7 @@ router.get('/community',function(req,res){
     var perPage = 5//페이지당 5개
 
     var page = req.params.page || 1 //파라미터로 값 받기.
-
+    console.log(page);
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
       var dbo = db.db("mylab");
@@ -35,7 +35,7 @@ router.get('/community',function(req,res){
       .sort({"date":1}).toArray(function(err, result) {
         if (err) throw err;
         dbo.collection("student_board").count(function(err, count) {
-        console.log(count);
+
         if(req.session.user){
 
           res.render('community', {
@@ -66,7 +66,7 @@ router.get('/community',function(req,res){
 router.get('/community/:page',function(req,res){
     var perPage = 5//페이지당 5개
     var page = req.params.page || 1//파라미터로 값 받기.
-
+    console.log(page);
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
       var dbo = db.db("mylab");
