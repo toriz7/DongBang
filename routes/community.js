@@ -70,23 +70,22 @@ router.get('/community/:page',function(req,res){
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
       var dbo = db.db("mylab");
-        dbo.collection("student_board").find({})
-        .skip((perPage * page) - perPage) //이렇게 해야 첫 페이지에서도 출력됨
-        .limit(perPage)
-        .sort({"date":1}).toArray(function(err, result) {
+      dbo.collection("student_board").find({})
+      .skip((perPage * page) - perPage) //이렇게 해야 첫 페이지에서도 출력됨
+      .limit(perPage)
+      .sort({"date":1}).toArray(function(err, result) {
         if (err) throw err;
-
         dbo.collection("student_board").count(function(err, count) {
         console.log(count);
         if(req.session.user){
-          res.render('community', {
 
-            email:req.session.user.email,
-            name:req.session.user.name,
-            board: result,
-            current:page,
-            pages: Math.ceil(count / perPage)
-          });
+          res.render('community', {
+             email:req.session.user.email,
+             name:req.session.user.name,
+             board: result,
+             current:page,
+             pages: Math.ceil(count / perPage)
+           });
           db.close();
         }
         else{
