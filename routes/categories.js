@@ -28,11 +28,10 @@ router.get('/categories',function(req,res){
     dbo.collection("house_board").find({})
       .sort({"date":1}).toArray(function(err, result) {
         if(req.session.user){
-          res.render('categories',{email:req.session.user.email, name:req.session.user.name,board:result})
-
+          res.render('categories',{email:req.session.user.email, name:req.session.user.name, board:result})
           //console.log(req.session.user.email);
         }else{
-          res.render('categories',{email:null, name:null})
+          res.render('categories',{email:null, name:null,board:result})
         }
 
     })
