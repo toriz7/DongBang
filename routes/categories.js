@@ -37,8 +37,8 @@ router.get('/categories',function(req,res){
           res.render('categories',{email:null, name:null})
         }
 
-    }
-  }
+    })
+  })
 });
 
 
