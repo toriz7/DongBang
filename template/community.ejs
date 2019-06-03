@@ -117,7 +117,9 @@
             <div class="row">
 			<% if(email){ %>
 			<a href="./community_write"><button type="button" class="btn btn-muted align-self-end">글 쓰기</button></a>
-			<% } %>
+			<% }else{ %>
+				<a href="./login"><button type="button" class="btn btn-muted align-self-end">글을 쓰려면 로그인 해 주세요</button></a>
+			<%} %>
 			</div>
 
 		</div>
