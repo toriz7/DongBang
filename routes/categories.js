@@ -26,8 +26,6 @@ router.get('/categories',function(req,res){
     if (err) throw err;
     var dbo = db.db("mylab");
     dbo.collection("house_board").find({})
-      .skip((perPage * page) - perPage) //이렇게 해야 첫 페이지에서도 출력됨
-      .limit(perPage)
       .sort({"date":1}).toArray(function(err, result) {
         if(req.session.user){
           res.render('categories',{email:req.session.user.email, name:req.session.user.name,board:result})

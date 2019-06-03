@@ -75,7 +75,6 @@ app.get('/',function(req,res){
                 houseresult:houseresult,
                 studentresult:studentresult
               })
-
               //console.log(req.session.user.email);
               }else{
                 res.render('index',{email:null, name:null,houseresult:houseresult,
