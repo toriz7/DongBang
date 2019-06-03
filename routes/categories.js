@@ -25,7 +25,7 @@ router.get('/categories',function(req,res){
   MongoClient.connect(url, function(err, db) {
     if (err) throw err;
     var dbo = db.db("mylab");
-    dbo.collection("house_board").find({})
+    dbo.collection("house_board").find({}) 
       .sort({"date":1}).toArray(function(err, result) {
         if(req.session.user){
           res.render('categories',{email:req.session.user.email, name:req.session.user.name,board:result})
