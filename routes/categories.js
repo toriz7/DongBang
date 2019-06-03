@@ -32,7 +32,7 @@ router.get('/categories',function(req,res){
 
           //console.log(req.session.user.email);
         }else{
-          res.render('categories',{email:null, name:null})
+          res.render('categories',{email:null, name:null})  
         }
 
     })
