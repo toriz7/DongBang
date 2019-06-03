@@ -40,10 +40,11 @@ app.use('/js', express.static('./template/js/'));
 app.use('/img', express.static('./template/img/'));
 app.use('/icon-fonts', express.static('./template/icon-fonts/'));
 ////////////////////////////
+/* 지울 후보
 let mongoose = require('mongoose');
 let Board=require('./models/dbModel');
 mongoose.Promise = global.Promise;
-
+*/
 /*
 var promise = mongoose.connect('mongodb://localhost/mylab', {
     useNewUrlParser: true
@@ -56,15 +57,33 @@ db.once('open', function() {
 });
 */
 ////////////////////////////
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
 
 app.get('/',function(req,res){
-  if(req.session.user){
-    res.render('index',{email:req.session.user.email, name:req.session.user.name})
+  MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("mylab");
+    dbo.collection("house_board").find({})
+      .limit(3)
+      .sort({"date":1}).toArray(function(err, houseresult) {
+        dbo.collection("student_board").find({})
+          .limit(3)
+          .sort({"date":1}).toArray(function(err, studentresult) {
+            if(req.session.user){
+              res.render('index',{email:req.session.user.email, name:req.session.user.name,
+                houseresult:houseresult,
+                studentresult:studentresult
+              })
 
-    //console.log(req.session.user.email);
-  }else{
-    res.render('index',{email:null, name:null})
-  }
+              //console.log(req.session.user.email);
+              }else{
+                res.render('index',{email:null, name:null,houseresult:houseresult,
+                studentresult:studentresult})
+              }
+            })
+          })
+        })
 });
 
 app.listen(3000,function(req,res){
