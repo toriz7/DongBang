@@ -2105,10 +2105,7 @@ ol {
 	margin-bottom: 40px;
 }
 /* Google Map API */
-#map{
-	width : auto;
-	height : 350px;
-}
+
 #map-footer{
 	width : auto;
 	height : 240px;
