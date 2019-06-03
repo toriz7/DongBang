@@ -196,12 +196,12 @@
 						for (let i = 0; i < studentresult.length; i++){%>
 					<div class="col-lg-4 col-md-6 blog-item">
 						<img src="img/blog/<%- i + 1%>>.jpg" alt="">
-						<h5><a href="single-blog.html"><%-studentresult.title%></a></h5>
+						<h5><a href="single-blog.html"><%-studentresult[i].title%></a></h5>
 						<div class="blog-meta">
-							<span><i class="fa fa-user"></i><%-studentresult.userid%></span>
-							<span><i class="fa fa-clock-o"></i><%-studentresult.date%></span>
+							<span><i class="fa fa-user"></i><%-studentresult[i].userid%></span>
+							<span><i class="fa fa-clock-o"></i><%-studentresult[i].date%></span>
 						</div>
-						<p><%- studentresult.content%></p>
+						<p><%- studentresult[i].content%></p>
 					</div>
 					<%}}%>
 				</div>
