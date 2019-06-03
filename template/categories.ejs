@@ -63,40 +63,45 @@
 			<div class="row">
 				<% if(board) {
 					for(var i=0;i <board.length ; i++) { %>
+<<<<<<< HEAD
 					<div class="col-lg-4 col-md-6">
 						<!-- feature -->
 						<div class="feature-item">
 							<div class="feature-pic set-bg" data-setbg="img/feature/1.jpg">
 								<div class="sale-notic"><%- board[i].type %></div>
+=======
+				<div class="col-lg-4 col-md-6">
+					<!-- feature -->					
+					<div class="feature-item">
+						<div class="feature-pic set-bg" data-setbg="img/feature/1.jpg">
+							<div class="sale-notic">월세</div>
+						</div>
+						<div class="feature-text">
+							<div class="text-center feature-title">
+								<h5>햇별 잘드는 원룸</h5>
+								<p><i class="fa fa-map-marker"></i> 서울특별시 중구 장충동2가</p>
+>>>>>>> 7dbb069c0929247030191b48a7cd0e97cda07834
 							</div>
-							<div class="feature-text">
-								<div class="text-center feature-title">
-									<h5><%- board[i].title%></h5>
-									<p><i class="fa fa-map-marker"></i> <%- board[i].location%></p>
-								</div>
-								<div class="room-info-warp">
-									<div class="room-info">
-										<div class="rf-left">
-											<p><i class="fa fa-th-large"></i> <%- board[i].room_area%></p>
-											<p><i class="fa fa-clock-o"></i> <%- board[i].date%></p>
-										</div>
-										<div class="rf-right">
-											<% if (board[i].car == "unable") %>
-												<p><i class="fa fa-car"></i> 주차불가</p>
-											<% else>
-											<p><i class="fa fa-car"></i> 주차가능</p>
-										</div>
+							<div class="room-info-warp">
+								<div class="room-info">
+									<div class="rf-left">
+										<p><i class="fa fa-th-large"></i> 14.9 / 4평</p>
+										<p><i class="fa fa-clock-o"></i> 2019-06-02</p>
 									</div>
-									<div class="room-info">
-										<div class="rf-left">
-											<p><i class="fa fa-user"></i> 동국대학교</p>
-										</div>
+									<div class="rf-right">
+										<p><i class="fa fa-car"></i> 주차불가</p>
 									</div>
 								</div>
-								<a href="#" class="room-price"> <%- board[i].price%></a>
+								<div class="room-info">
+									<div class="rf-left">
+										<p><i class="fa fa-user"></i> 동국대학교</p>
+									</div>
+								</div>
 							</div>
+							<a href="#" class="room-price"> 보증금 500 / 월세 45</a>
 						</div>
 					</div>
+				</div>
 				<% }} %>
 
 			</div>
