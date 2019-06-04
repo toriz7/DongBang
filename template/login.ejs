@@ -134,28 +134,29 @@
         <h2>로그인</h2>
     </div>
   </section>
-  <div class="container text-black text-center" style="height:200px">
-      <br><br>
-      <div id="naverIdLogin"></div>
-      <!-- //네이버아이디로로그인 버튼 노출 영역 -->
-      <!-- 네이버아디디로로그인 초기화 Script -->
-      <script type="text/javascript">
-        var naverLogin = new naver.LoginWithNaverId(
-          {
-            clientId: "sx0kOMYlWoOfIVxw2rxT",
-            callbackUrl: "http://13.124.154.59:3000/verify",
-            isPopup: false, /* 팝업을 통한 연동처리 여부 */
-            loginButton: { color: "green", type: 3, height: 60 } /* 로그인 버튼의 타입을 지정 */
-          });
 
-        /* 설정정보를 초기화하고 연동을 준비 */
-        naverLogin.init();
-/* */
-      </script>
-      <h2>
-        원래는 여기 로그인버튼 여러개있어야하는데 내이버만 조집시다 여러분
-      </h2>
-  </div>
+  <section class="services-section spad set-bg" data-setbg="img/15_03_13_login_01.png">
+    <div class="container text-black text-center" style="height:400px">
+        <br><br>
+        <div id="naverIdLogin"></div>
+        <!-- //네이버아이디로로그인 버튼 노출 영역 -->
+        <!-- 네이버아디디로로그인 초기화 Script -->
+        <script type="text/javascript">
+          var naverLogin = new naver.LoginWithNaverId(
+            {
+              clientId: "sx0kOMYlWoOfIVxw2rxT",
+              callbackUrl: "http://13.124.154.59:3000/verify",
+              isPopup: false, /* 팝업을 통한 연동처리 여부 */
+              loginButton: { color: "green", type: 3, height: 60 } /* 로그인 버튼의 타입을 지정 */
+            });
+  
+          /* 설정정보를 초기화하고 연동을 준비 */
+          naverLogin.init();
+  /* */
+        </script>        
+    </div>  
+  </section>
+  
 
  <!-- Footer section -->
  <% include ./footer %>
