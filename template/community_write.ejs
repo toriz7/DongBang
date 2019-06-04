@@ -28,10 +28,9 @@
 	<style>
 		/* Always set the map height explicitly to define the size of the div
 			 * element that contains the map. */
-		#map {
+		#map_write {
 			height: 400px;
 		}
-
 
 		.pac-card {
 			margin: 10px 10px 0 0;
@@ -119,22 +118,36 @@
 				<!-- 상단 -->
 				<div class="col-8">
 					<h5>위치</h5>
-
 					<input id="pac-input" class="controls" type="text" placeholder="Search Box">
-					<div id="map"></div>
-
+					<div id="map_write"></div>
 				</div>
-			</div>
+				<div class="col-3">
+					<div class="row">
+						<h5 class="align-center" style="padding-bottom: 20px">이 집을 추천하시나요?</h5>
+						<div class="col">
+							<i class="fa fa-thumbs-o-up fa-5x" style="color:blue"></i>
+						</div>
+						<div class="col">
+							<i class="fa fa-thumbs-o-down fa-5x" style="color:red"></i>
+						</div>
 
-			<div class="col-3">
-				<div class="row">
-					<h5 class="align-center">이 집을 추천하시나요?</h5>
-					<div class="col">
-						<i class="fa fa-thumbs-o-up fa-5x" style="color:blue"></i>
 					</div>
-					<div class="col">
-						<i class="fa fa-thumbs-o-down fa-5x" style="color:red"></i>
-					</div>
+					<br><br>
+					<div class="col-12">
+							<br><br>
+							<div class="comment-form-warp">
+								<h5 class="comment-title" style="padding-bottom: 20px">면적</h5>
+			
+								<form class="comment-form">
+									<div class="row">
+										<div class="col-md-12">
+											<input type="text" placeholder="면적">
+										</div>
+										
+									</div>
+								</form>
+							</div>
+						</div>
 				</div>
 			</div>
 
@@ -156,9 +169,10 @@
 					</form>
 				</div>
 			</div>
+			<a href="./community_write"><button type="button" class="btn btn-muted col-2 align-self-end">작성</button></a>
 		</div>
 
-		<a href="./community_write"><button type="button" class="btn btn-muted col-2 align-self-end">작성</button></a>
+		
 
 
 		</div>
@@ -175,18 +189,58 @@
 	<% include ./client %>
 	<!-- Clients section end -->
 
+	<footer class="footer-section set-bg" data-setbg="/img/footer-bg.jpg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6 footer-widget">
+					<img src="/img/logo.png" alt="">
+					<p>원피스 팀은 동국대학교 창업캡스톤디자인 팀으로 동국대학교 링크사업단과 함께합니다.</p>
+					<div class="social">
+						<a href="#"><i class="fa fa-facebook"></i></a>
+						<a href="#"><i class="fa fa-twitter"></i></a>
+						<a href="#"><i class="fa fa-instagram"></i></a>
+						<a href="#"><i class="fa fa-pinterest"></i></a>
+						<a href="#"><i class="fa fa-linkedin"></i></a>
+					</div>
+				</div>
 
-	<!-- Footer section -->
-	<% include ./footer %>
-	<!-- Footer section end-->
 
-	<!--====== Javascripts & Jquery ======-->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/masonry.pkgd.min.js"></script>
-	<script src="js/magnific-popup.min.js"></script>
-	<script src="js/main.js"></script>
+				<div class="col-lg-4 col-md-6 footer-widget">
+					<div class="contact-widget">
+						<h5 class="fw-title">CONTACT US</h5>
+						<p><i class="fa fa-map-marker"></i>04620 중구 필동로 1길 30 동국대학교 신공학관 9층</p>
+						<p><i class="fa fa-phone"></i>'전화 : 02-2290-1723~30팩스 : 02-2290-1731'</p>
+						<p><i class="fa fa-envelope"></i>jeff8014@colorlib.com</p>
+						<p><i class="fa fa-clock-o"></i>월 - 토, 08 AM - 06 PM</p>
+					</div>
+				</div>
+				<div class="col-lg-5 col-md-6 footer-widget">
+					<div class="map-footer">
+
+						<div class="row" id="map-footer">
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom">
+
+				<div class="copyright">
+					<p>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						Copyright &copy;
+						<script>document.write(new Date().getFullYear());</script> All rights reserved | This template
+						is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com"
+							target="_blank">Colorlib</a>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					</p>
+				</div>
+			</div>
+		</div>
+
+
+
+	</footer>
 	<script>
 		// This example adds a search box to a map, using the Google Place Autocomplete
 		// feature. People can enter geographical searches. The search box will return a
@@ -197,7 +251,12 @@
 		// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
 		function initAutocomplete() {
-			var map = new google.maps.Map(document.getElementById('map'), {
+			var DGU = { lat: 37.5569662, lng: 126.9996893 };
+			var map = new google.maps.Map(
+				document.getElementById('map-footer'), { zoom: 15, center: DGU });
+			var marker = new google.maps.Marker({ position: DGU, map: map });
+
+			var map = new google.maps.Map(document.getElementById('map_write'), {
 				center: { lat: 37.558655, lng: 126.996088 },
 				zoom: 14,
 				mapTypeId: 'roadmap'
@@ -262,10 +321,18 @@
 		}
 
 	</script>
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfAgYbMK9fZC0Z7UhLmlzcMs94uryZGAQ&callback=initAutocomplete">
+		</script>
+	<!--====== Javascripts & Jquery ======-->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/masonry.pkgd.min.js"></script>
+	<script src="js/magnific-popup.min.js"></script>
+	<script src="js/main.js"></script>
 
-	<!-- <script async defer
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfAgYbMK9fZC0Z7UhLmlzcMs94uryZGAQ&callback=initMap">
-		</script> -->
+
 </body>
 
 </html>
