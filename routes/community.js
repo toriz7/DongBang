@@ -117,7 +117,7 @@ router.get('/community/:userid/:date',function(req,res){
 
         console.log(result);
         if(req.session.user){
-          res.render('community', {
+          res.render('community_board', {
              email:req.session.user.email,
              name:req.session.user.name,
              board: result,
@@ -127,7 +127,7 @@ router.get('/community/:userid/:date',function(req,res){
           db.close();
         }
         else{
-          res.render('community', {
+          res.render('community_board', {
             email:null,
             name:null,
             board: result,
