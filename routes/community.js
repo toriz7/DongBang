@@ -66,7 +66,7 @@ router.get('/community',function(req,res){
 router.get('/community/:page',function(req,res){
     var perPage = 5//페이지당 5개
     var page = req.params.page || 1//파라미터로 값 받기.
-    
+
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
       var dbo = db.db("mylab");
@@ -101,6 +101,43 @@ router.get('/community/:page',function(req,res){
       })
       });
     });
+    //console.log(req.session.user.email);
+});
+
+router.get('/community/:userid/:date',function(req,res){
+    var userid=req.params.userid
+    var date = req.params.date //파라미터로 값 받기.
+
+    MongoClient.connect(url, function(err, db) {
+      if (err) throw err;
+      var dbo = db.db("mylab");
+      dbo.collection("student_board").find({"userid":userid,"date":date})
+      .toArray(function(err, result) {
+        if (err) throw err;
+
+        console.log(result);
+        if(req.session.user){
+          res.render('community', {
+             email:req.session.user.email,
+             name:req.session.user.name,
+             board: result,
+             current:page,
+             pages: Math.ceil(count / perPage)
+           });
+          db.close();
+        }
+        else{
+          res.render('community', {
+            email:null,
+            name:null,
+            board: result,
+            current:page,
+            pages: Math.ceil(count / perPage)
+          });
+          db.close();
+        }
+      });
+    });//db MongoClient
     //console.log(req.session.user.email);
 });
 

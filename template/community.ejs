@@ -80,7 +80,8 @@
 					<div class="media">
 						<img class="mr-3" src="/img/blog/1.jpg" height="200px" width="200px" alt="Generic placeholder image">
 						<div class="media-body">
-							<%-board[i].content%>
+							<a href="/community/<%=board[i].userid%>/<%=board[i].date%>"><%-board[i].content%></a>
+							<!-- 클릭하면 아이디와 해당 날짜 기준으로 세부 페이지로 이동 -->
 						</div>
 					</div>
 				</div>
