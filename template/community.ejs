@@ -68,8 +68,9 @@
 	<section class="page-section blog-page" style="background-color:#EDEFF1">
 		<div class="container">
 			<div class="row">
-				<div class="col-8" style="background-color:white; padding-bottom:30px">
+				<div class="col-8" style="padding-bottom:30px">
 				<!--board.length 를 5로 임의적으로 준 것-->
+				<p style="background-color:white;"" >
 				<% if(board){for(var i=0;i <board.length ; i++) { %>
 				<div class="col-8">
 					<span class="text-primary text-left font-weight-bold"><%- board[i].title%></span> <span
@@ -116,7 +117,8 @@
                     <% } else { %>
                         <li><a href="/community/<%= pages %>">Last</a></li>
                     <% } %>
-                </ul>
+				</ul>
+			</p>
 			<% } %>
 			</div>
 			<div class="col-4">
