@@ -77,23 +77,10 @@ a{
 				<div class="col-8" >
 				<!--board.length 를 5로 임의적으로 준 것-->
 				<% if(board){for(var i=0;i <board.length ; i++) { %>
-<<<<<<< HEAD
-				<div class="col-8">
-					<span class="text-left font-weight-bold"><%- board[i].title%></span> <span
-						class="text-muted">
-						<%-board[i].date %>
-					</span>
-				</div>
-				<div class="col-4">
-					<i class="far fa-grin"></i>
-				</div>
-				<div class="col-12 community-list">
-=======
     <div class="" style="border-bottom:2px outset #FAFAFA; border-right:2px outset #FAFAFA;border-radius:10px;background-color:#ffffff; margin-top:12px;margin-bottom:12px;padding-top:12px;">
 				<div class="col-12 community-list" style="background-color:#ffffff">
->>>>>>> 45c13a4ea63426e4005c0947594e3955886c8769
 					<div class="media">
-						<img class="mr-3" src="/img/blog/1.jpg" height="100px" width="130px" alt="Generic placeholder image">
+						<img class="mr-3" src="/img/blog/<% i + 1 %>.jpg" height="100px" width="130px" alt="Generic placeholder image">
                         <div class="media-body" style="padding-left:20px">
                             <div class="row">
                                 <% if(i == 2 || i == 4) { %>
