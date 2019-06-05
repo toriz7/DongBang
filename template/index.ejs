@@ -165,7 +165,7 @@ naverLogin.getLoginStatus(function (status) {
                     <% if (studentresult) { 
                      for (let i = 0; i < studentresult.length; i++){%>
                      <div class="col-lg-4 col-md-6 blog-item">
-                         <img src="img/blog/<%- i + 1%>.jpg" alt="">
+                         <img src="img/blog/<%- i + 1%>.jpg" alt="" style="width:400px;height:250px">
                          <h5><a href="single-blog.html"><%-studentresult[i].title%></a></h5>
                          <div class="blog-meta">
                              <span><i class="fa fa-user"></i><%-studentresult[i].userid%></span>

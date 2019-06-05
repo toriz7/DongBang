@@ -80,7 +80,7 @@ a{
     <div class="" style="border-bottom:2px outset #FAFAFA; border-right:2px outset #FAFAFA;border-radius:10px;background-color:#ffffff; margin-top:12px;margin-bottom:12px;padding-top:12px;">
 				<div class="col-12 community-list" style="background-color:#ffffff">
 					<div class="media">
-						<img class="mr-3" src="/img/blog/<% i + 1 %>.jpg" height="100px" width="130px" alt="Generic placeholder image">
+						<img class="mr-3" src="/img/blog/<%- i + 1 %>.jpg" height="100px" width="130px" alt="Generic placeholder image">
                         <div class="media-body" style="padding-left:20px">
                             <div class="row">
                                 <% if(i == 2 || i == 4) { %>
@@ -141,8 +141,6 @@ a{
 				Advertisement Area (Will Uploaded Soon!!)
 			</div>
 			</div>
-            </div>
-            <div class="row">
 			<% if(email){ %>
 			<a href="./community_write"><button type="button" class="btn btn-muted align-self-end">글 쓰기</button></a>
 			<% }else{ %>

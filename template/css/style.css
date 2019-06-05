@@ -814,11 +814,10 @@ ol {
 
 .clients-section {
 	position: relative;
-	margin-bottom: -60px;
+	margin-bottom: 15px;
 }
 
 .clients-slider {
-	background: #88e9d2;
 	padding: 27px 40px;
 	border-radius: 3px;
 }
