@@ -48,7 +48,7 @@
 		var naverLogin = new naver.LoginWithNaverId(
 			{
 				clientId: "sx0kOMYlWoOfIVxw2rxT",
-				callbackUrl: "http://13.124.154.59:3000/temp",
+				callbackUrl: "http://54.180.83.211:3000/temp",
 				isPopup: false,
 				callbackHandle: true
 				/* callback 페이지가 분리되었을 경우에 callback 페이지에서는 callback처리를 해줄수 있도록 설정합니다. */
@@ -80,9 +80,9 @@
 
           <!--서버로 올려주기 -->
 
-          post_to_url("http://13.124.154.59:3000/temp",{"email":email,"id":uniqId},"post");
+          post_to_url("http://54.180.83.211:3000/temp",{"email":email,"id":uniqId},"post");
 
-          redirect("http://13.124.154.59:3000/temp");
+          redirect("http://54.180.83.211:3000/temp");
 				//window.location.replace("http://13.124.154.59:3000/temp")
 				} else {
 					console.log("callback 처리에 실패하였습니다.");
